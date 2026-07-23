@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explore the Solar System</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Moving space background -->
+    <video autoplay muted loop playsinline id="space-video">
+        <source src="videos/space-background.mp4" type="video/mp4">
+        Your browser does not support background video.
+    </video>
+
+    <!-- Dark overlay for readability -->
+    <div class="video-overlay"></div>
+
+    <!-- Header -->
+    <header>
+        <h1>Explore the Solar System</h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#planets">Planets</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Hero section -->
+        <section id="home">
+            <h2>Welcome, Explorer!</h2>
+
+            <p>
+                Discover fascinating facts about the planets in our Solar System.
+            </p>
+
+            <a href="#planets" class="button">Start Exploring</a>
+        </section>
+
+        <!-- Planet section -->
+        <section id="planets">
+
+            <h2>Choose a Planet</h2>
+
+            <p class="section-intro">
+                Select a planet to begin exploring.
+            </p>
+
+            <div class="planet-container">
+
+                <button class="planet mercury" data-planet="mercury">
+                    <img src="images/mercury.png" alt="Mercury">
+                    <span>Mercury</span>
+                </button>
+
+                <button class="planet venus" data-planet="venus">
+                    <img src="images/venus.png" alt="Venus">
+                    <span>Venus</span>
+                </button>
+
+                <button class="planet earth" data-planet="earth">
+                    <img src="images/earth.png" alt="Earth">
+                    <span>Earth</span>
+                </button>
+
+                <button class="planet mars" data-planet="mars">
+                    <img src="images/mars.png" alt="Mars">
+                    <span>Mars</span>
+                </button>
+
+                <button class="planet jupiter" data-planet="jupiter">
+                    <img src="images/jupiter.png" alt="Jupiter">
+                    <span>Jupiter</span>
+                </button>
+
+                <button class="planet saturn" data-planet="saturn">
+                    <img src="images/saturn.png" alt="Saturn">
+                    <span>Saturn</span>
+                </button>
+
+                <button class="planet uranus" data-planet="uranus">
+                    <img src="images/uranus.png" alt="Uranus">
+                    <span>Uranus</span>
+                </button>
+
+                <button class="planet neptune" data-planet="neptune">
+                    <img src="images/neptune.png" alt="Neptune">
+                    <span>Neptune</span>
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- Hidden planet information popup -->
+        <section class="planet-modal" id="planet-modal" aria-hidden="true">
+
+            <div class="modal-content">
+
+                <button class="close-button" id="close-button" aria-label="Close planet information">
+                    ×
+                </button>
+
+                <img
+                    id="modal-planet-image"
+                    src="images/earth.png"
+                    alt="Selected planet"
+                >
+
+                <div class="modal-text">
+                    <h2 id="modal-planet-name">Planet Name</h2>
+
+                    <p id="modal-planet-fact">
+                        Planet information will appear here.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- About section -->
+        <section id="about">
+
+            <h2>About This Experience</h2>
+
+            <p>
+                This interactive website allows users to explore the Solar System
+                by selecting planets and viewing facts through animation and
+                interactive design.
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Created by Antonella Gutierrez</p>
+    </footer>
+
+</body>
+
+</html>
