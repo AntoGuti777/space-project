@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta
+        name="description"
+        content="Explore all eight planets through an interactive, educational tour of our Solar System."
+    >
+
     <title>Explore the Solar System</title>
 
     <link rel="stylesheet" href="style.css">
@@ -13,8 +18,13 @@
 
 <body>
 
+    <!-- Accessibility link -->
+    <a class="skip-link" href="#main-content">
+        Skip to main content
+    </a>
+
     <!-- Moving space background -->
-    <video autoplay muted loop playsinline id="space-video">
+    <video autoplay muted loop playsinline id="space-video" aria-hidden="true">
         <source src="videos/space-background.mp4" type="video/mp4">
         Your browser does not support background video.
     </video>
@@ -24,75 +34,247 @@
 
     <!-- Header -->
     <header>
-        <h1>Explore the Solar System</h1>
 
-        <nav>
+        <a
+            class="site-identity"
+            href="#home"
+            aria-label="Explore the Solar System home"
+        >
+            <img
+                class="site-logo"
+                src="images/astronaut-logo.png"
+                alt=""
+            >
+
+            <span>Explore the Solar System</span>
+        </a>
+
+        <nav aria-label="Main navigation">
             <a href="#home">Home</a>
+            <a href="#how-to-explore">How It Works</a>
             <a href="#planets">Planets</a>
+            <a href="#space-fact">Space Fact</a>
             <a href="#about">About</a>
         </nav>
+
     </header>
 
-    <main>
+    <main id="main-content">
 
-        <!-- Hero section -->
-        <section id="home">
-            <h2>Welcome, Explorer!</h2>
+        <!-- =========================
+             SECTION 1: HOME
+        ========================== -->
+
+        <section id="home" class="reveal">
+
+            <p class="eyebrow">
+                An interactive journey through our cosmic neighborhood
+            </p>
+
+            <h1>Welcome, Explorer!</h1>
 
             <p>
-                Discover fascinating facts about the planets in our Solar System.
+                Travel from scorching Mercury to windswept Neptune.
+                Select every planet to uncover essential science,
+                surprising discoveries, and the cultural stories people
+                have connected to the night sky.
             </p>
 
-            <a href="#planets" class="button">Start Exploring</a>
+            <a href="#how-to-explore" class="button">
+                Start Exploring
+            </a>
+
         </section>
 
-        <!-- Planet section -->
-        <section id="planets">
 
-            <h2>Choose a Planet</h2>
+        <!-- =========================
+             SECTION 2: HOW TO EXPLORE
+        ========================== -->
 
-            <p class="section-intro">
-                Select a planet to begin exploring.
-            </p>
+        <section id="how-to-explore" class="content-section reveal">
 
+            <div class="section-heading">
+
+                <p class="eyebrow">Mission Briefing</p>
+
+                <h2>How to Explore</h2>
+
+                <p>
+                    Complete these three simple steps to tour the
+                    Solar System.
+                </p>
+
+            </div>
+
+            <div class="step-grid">
+
+                <article class="info-card">
+
+                    <span class="card-icon" aria-hidden="true">
+                        01
+                    </span>
+
+                    <h3>Choose</h3>
+
+                    <p>
+                        Select one of the eight planets in the
+                        interactive planet grid.
+                    </p>
+
+                </article>
+
+                <article class="info-card">
+
+                    <span class="card-icon" aria-hidden="true">
+                        02
+                    </span>
+
+                    <h3>Discover</h3>
+
+                    <p>
+                        Open its profile to compare distance, moons,
+                        temperature, and day length.
+                    </p>
+
+                </article>
+
+                <article class="info-card">
+
+                    <span class="card-icon" aria-hidden="true">
+                        03
+                    </span>
+
+                    <h3>Complete</h3>
+
+                    <p>
+                        Track your progress and try to explore all
+                        eight planetary worlds.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SECTION 3: PLANETS
+        ========================== -->
+
+        <section id="planets" class="reveal">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">Your Planetary Tour</p>
+
+                <h2>Choose a Planet</h2>
+
+                <p class="section-intro">
+                    Click a planet to start exploring.
+                </p>
+
+            </div>
+
+            <!-- Planet progress display -->
+            <div class="progress-panel" aria-live="polite">
+
+                <div class="progress-copy">
+
+                    <span id="progress-text">
+                        Planets Explored: 0/8
+                    </span>
+
+                    <span id="progress-message">
+                        Your journey is ready to begin.
+                    </span>
+
+                </div>
+
+                <div
+                    class="progress-track"
+                    role="progressbar"
+                    aria-label="Planet exploration progress"
+                    aria-valuemin="0"
+                    aria-valuemax="8"
+                    aria-valuenow="0"
+                >
+                    <span id="progress-fill"></span>
+                </div>
+
+            </div>
+
+            <!-- Planet buttons -->
             <div class="planet-container">
 
-                <button class="planet mercury" data-planet="mercury">
+                <button
+                    class="planet mercury"
+                    data-planet="mercury"
+                    aria-label="Explore Mercury"
+                >
                     <img src="images/mercury.png" alt="Mercury">
                     <span>Mercury</span>
                 </button>
 
-                <button class="planet venus" data-planet="venus">
+                <button
+                    class="planet venus"
+                    data-planet="venus"
+                    aria-label="Explore Venus"
+                >
                     <img src="images/venus.png" alt="Venus">
                     <span>Venus</span>
                 </button>
 
-                <button class="planet earth" data-planet="earth">
+                <button
+                    class="planet earth"
+                    data-planet="earth"
+                    aria-label="Explore Earth"
+                >
                     <img src="images/earth.png" alt="Earth">
                     <span>Earth</span>
                 </button>
 
-                <button class="planet mars" data-planet="mars">
+                <button
+                    class="planet mars"
+                    data-planet="mars"
+                    aria-label="Explore Mars"
+                >
                     <img src="images/mars.png" alt="Mars">
                     <span>Mars</span>
                 </button>
 
-                <button class="planet jupiter" data-planet="jupiter">
+                <button
+                    class="planet jupiter"
+                    data-planet="jupiter"
+                    aria-label="Explore Jupiter"
+                >
                     <img src="images/jupiter.png" alt="Jupiter">
                     <span>Jupiter</span>
                 </button>
 
-                <button class="planet saturn" data-planet="saturn">
+                <button
+                    class="planet saturn"
+                    data-planet="saturn"
+                    aria-label="Explore Saturn"
+                >
                     <img src="images/saturn.png" alt="Saturn">
                     <span>Saturn</span>
                 </button>
 
-                <button class="planet uranus" data-planet="uranus">
+                <button
+                    class="planet uranus"
+                    data-planet="uranus"
+                    aria-label="Explore Uranus"
+                >
                     <img src="images/uranus.png" alt="Uranus">
                     <span>Uranus</span>
                 </button>
 
-                <button class="planet neptune" data-planet="neptune">
+                <button
+                    class="planet neptune"
+                    data-planet="neptune"
+                    aria-label="Explore Neptune"
+                >
                     <img src="images/neptune.png" alt="Neptune">
                     <span>Neptune</span>
                 </button>
@@ -101,51 +283,239 @@
 
         </section>
 
-        <!-- Hidden planet information popup -->
-        <section class="planet-modal" id="planet-modal" aria-hidden="true">
 
-            <div class="modal-content">
+        <!-- =========================
+             SECTION 4: RANDOM FACT
+        ========================== -->
 
-                <button class="close-button" id="close-button" aria-label="Close planet information">
-                    ×
-                </button>
+        <section id="space-fact" class="content-section reveal">
 
-                <img
-                    id="modal-planet-image"
-                    src="images/earth.png"
-                    alt="Selected planet"
-                >
+            <div class="fact-card">
 
-                <div class="modal-text">
-                    <h2 id="modal-planet-name">Planet Name</h2>
+                <div class="fact-icon" aria-hidden="true">
+                    ☄
+                </div>
 
-                    <p id="modal-planet-fact">
-                        Planet information will appear here.
+                <div>
+
+                    <p class="eyebrow">Did You Know?</p>
+
+                    <h2>A New Fact Every Visit</h2>
+
+                    <p id="random-fact" aria-live="polite">
+                        Preparing a fact from across the Solar System...
                     </p>
+
+                    <button
+                        id="new-fact-button"
+                        class="secondary-button"
+                        type="button"
+                    >
+                        Show Another Fact
+                    </button>
+
                 </div>
 
             </div>
 
         </section>
 
-        <!-- About section -->
-        <section id="about">
 
-            <h2>About This Experience</h2>
+        <!-- =========================
+             SECTION 5: ABOUT
+        ========================== -->
 
-            <p>
-                This interactive website allows users to explore the Solar System
-                by selecting planets and viewing facts through animation and
-                interactive design.
-            </p>
+        <section id="about" class="content-section reveal">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    About the Experience
+                </p>
+
+                <h2>Learning Through Exploration</h2>
+
+            </div>
+
+            <div class="about-grid">
+
+                <div class="about-copy">
+
+                    <p>
+                        Explore the Solar System is designed for curious
+                        students and casual space enthusiasts who want a
+                        welcoming introduction to the eight planets. Its
+                        goal is to make planetary comparison visual,
+                        interactive, and easy to understand.
+                    </p>
+
+                    <p>
+                        Scientific details are presented alongside clearly
+                        labeled cultural astrology notes. Astrology reflects
+                        historical traditions and is not presented as science.
+                        Planetary facts are based primarily on NASA Solar
+                        System Exploration resources.
+                    </p>
+
+                </div>
+
+                <ul
+                    class="feature-list"
+                    aria-label="Website features"
+                >
+
+                    <li>
+                        <span aria-hidden="true">✦</span>
+                        Eight interactive planet profiles
+                    </li>
+
+                    <li>
+                        <span aria-hidden="true">✦</span>
+                        Exploration progress tracking
+                    </li>
+
+                    <li>
+                        <span aria-hidden="true">✦</span>
+                        Rotating educational space facts
+                    </li>
+
+                    <li>
+                        <span aria-hidden="true">✦</span>
+                        Responsive and keyboard-friendly design
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PLANET MODAL
+        ========================== -->
+
+        <section
+            class="planet-modal"
+            id="planet-modal"
+            aria-hidden="true"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-planet-name"
+        >
+
+            <div class="modal-content" role="document">
+
+                <button
+                    class="close-button"
+                    id="close-button"
+                    aria-label="Close planet information"
+                >
+                    ×
+                </button>
+
+                <div class="modal-visual">
+
+                    <img
+                        id="modal-planet-image"
+                        src="images/earth.png"
+                        alt="Selected planet"
+                    >
+
+                </div>
+
+                <div class="modal-text">
+
+                    <p class="eyebrow">Planet Profile</p>
+
+                    <h2 id="modal-planet-name">
+                        Planet Name
+                    </h2>
+
+                    <p id="modal-planet-fact">
+                        Planet information will appear here.
+                    </p>
+
+                    <!-- Planet statistics -->
+                    <dl class="planet-stats">
+
+                        <div>
+                            <dt>Distance from Sun</dt>
+                            <dd id="modal-distance">—</dd>
+                        </div>
+
+                        <div>
+                            <dt>Known Moons</dt>
+                            <dd id="modal-moons">—</dd>
+                        </div>
+
+                        <div>
+                            <dt>Average Temperature</dt>
+                            <dd id="modal-temperature">—</dd>
+                        </div>
+
+                        <div>
+                            <dt>Length of Day</dt>
+                            <dd id="modal-day">—</dd>
+                        </div>
+
+                    </dl>
+
+                    <!-- Scientific information -->
+                    <div class="modal-note science-note">
+
+                        <h3>
+                            <span aria-hidden="true">🔭</span>
+                            Scientific Fun Fact
+                        </h3>
+
+                        <p id="modal-science-fact">—</p>
+
+                    </div>
+
+                    <!-- Astrology information -->
+                    <div class="modal-note astrology-note">
+
+                        <h3>
+                            <span aria-hidden="true">✧</span>
+                            Cultural Astrology Note
+                        </h3>
+
+                        <p id="modal-astrology-fact">—</p>
+
+                        <small>
+                            Astrology is a cultural tradition, not a science.
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </section>
 
     </main>
 
+
     <!-- Footer -->
     <footer>
-        <p>Created by Antonella Gutierrez</p>
+
+        <p>
+            Created by Antonella Gutierrez
+        </p>
+
+        <p>
+            Planetary information:
+            <a
+                href="https://science.nasa.gov/solar-system/planets/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                NASA Science
+            </a>
+        </p>
+
     </footer>
 
 </body>
